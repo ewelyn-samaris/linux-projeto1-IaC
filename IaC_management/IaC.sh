@@ -1,20 +1,20 @@
 #! /bin/bash
 
-echo "Iniciando configurações ..............."
+echo "Iniciando configurações ............................"
 
-# Criando diretorios
+echo "Criando diretorios ................................."
 mkdir /publico /adm /ven /sec
 
 
-# Criando grupos
+echo "Criando grupos ....................................."
 groupadd GRP_ADM
 groupadd GRP_VEN
 groupadd GRP_SEC
 
 
-# Criando usuários
+echo "Criando usuários..................................."
 
-#GRP_ADM
+# GRP_ADM
 useradd carlos -c "Carlos Alberto Maia" -m -s /bin/bash -p $(openssl passwd -crypt senha123) -G GRP_ADM
 passwd carlos -e
 
@@ -24,7 +24,7 @@ passwd maria -e
 useradd joao -c "João Guilherme Souza" -m -s /bin/bash -p $(openssl passwd -crypt senha123) -G GRP_ADM
 passwd joao -e
 
-#GRP_VEN
+# GRP_VEN
 useradd debora -c "Débora Lyra" -m -s /bin/bash -p $(openssl passwd -crypt senha123) -G GRP_VEN
 passwd debora -e
 
@@ -34,7 +34,7 @@ passwd sebastiana -e
 useradd roberto -c "Roberto José Souza" -m -s /bin/bash -p $(openssl passwd -crypt senha123) -G GRP_VEN
 passwd roberto -e
 
-#GRP_SEC
+# GRP_SEC
 useradd josefina -c "Josefina Augusta Gomes" -m -s /bin/bash -p $(openssl passwd -crypt senha123) -G GRP_SEC
 passwd josefina -e
 
@@ -45,7 +45,7 @@ useradd rogerio -c "Rogerio Cavalcanti" -m -s /bin/bash -p $(openssl passwd -cry
 passwd rogerio -e 
 
 
-# Definindo configurações dos diretórios
+echo "Definindo configurações dos diretórios ........."
 
 chown root:root /publico
 chown root:GRP_ADM /adm
@@ -53,7 +53,7 @@ chown root:GRP_VEN /ven
 chown root:GRP_SEC /sec
 
 
-# Definindo Permissões
+echo "Definindo Permissões ..........................."
 
 chmod 777 /publico
 chmod 770 /adm
@@ -62,3 +62,4 @@ chmod 770 /sec
 
 
 echo "Configuração finalizada! ........................"
+
